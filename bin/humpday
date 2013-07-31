@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'sounder'
+
+audio_file = File.expand_path('../../lib/support/humpday.m4a', __FILE__)
+
+Sounder.play audio_file
