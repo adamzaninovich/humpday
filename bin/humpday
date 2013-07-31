@@ -4,4 +4,5 @@ require 'sounder'
 
 audio_file = File.expand_path('../../lib/support/humpday.m4a', __FILE__)
 
+Sounder::System.set_volume 100
 Sounder.play audio_file
