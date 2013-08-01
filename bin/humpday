@@ -9,7 +9,7 @@ elsif ARGV.size == 1 && ARGV[0] != '-h' && ARGV[0] != 'help' && ARGV[0] != '--he
   begin
     Humpday.play ARGV[0]
   rescue Humpday::UnknownSoundError
-    abort "#{ARGV[0]} is not a known sound"
+    abort "#{ARGV[0]} does not match a known sound"
   end
 else
   puts Humpday.usage
