@@ -8,7 +8,11 @@ says "humpday"
 
 ## Usage
 
-run `humpday` on the commandline
+run `humpday` on the commandline for help
+
+## Changes
+
+1.1.0 - Now with fuzzy matching of the sound name!
 
 ## Contributing
 
