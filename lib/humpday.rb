@@ -17,7 +17,7 @@ module Humpday
 
   def self.play name
     sound_name = self.fuzzy_find name
-    raise UnknownSoundError if sound_name.nil?    
+    raise UnknownSoundError if sound_name.nil?
     sound = SOUNDS.fetch(sound_name) { raise UnknownSoundError }
     audio_file = File.expand_path("../../lib/support/#{sound}.m4a", __FILE__)
     Sounder.play audio_file
@@ -28,22 +28,17 @@ module Humpday
   end
 
   def self.usage
-    [ "humpday version #{Humpday::VERSION}",
+    usage = [ "humpday version #{Humpday::VERSION}",
       "Usage: humpday help (this)",
       "Usage: humpday random (picks a random sound)",
       "Usage: humpday <sound name> (it will fuzzy match the name)",
-      "Sounds:",
-      "  uhoh",
-      "  guess_what_day",
-      "  guess_what_day_2",
-      "  huh",
-      "  cmon",
-      "  laugh",
-      "  whoowhoa",
-      "  humpday"
-    ].join "\n"
+      "Sounds:"
+    ] + SOUNDS.keys.map do |sound|
+      "  #{sound}"
+    end
+    usage.join "\n"
   end
-  
+
   private
   def self.fuzzy_find name
     SOUNDS.keys.select { |sn| sn.include? name }.first
